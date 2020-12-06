@@ -5,7 +5,7 @@
 
 library("JADE")
 library("BSSasymp")
-dataset <- matrix(scan("resources/foetal_ecg.dat"), 2500, 9, byrow = TRUE)
+dataset <- matrix(scan("../resources/foetal_ecg.dat"), 2500, 9, byrow = TRUE)
 
 X <- dataset[, 2:9]
 plot.ts(X, nc = 1, main = "Data")
