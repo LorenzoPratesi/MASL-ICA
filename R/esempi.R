@@ -22,7 +22,7 @@ plot(ica$S, col="lightblue3", pch=20, main = "Independent components")
 
 
 
-#Example 12: mixture of bivariate normal distributions
+#Example 2: mixture of bivariate normal distributions
 
 x1 <- mvrnorm(n = 1000, mu = c(0, 0), Sigma = matrix(c(10, 3, 3, 1), 2, 2))
 x2 <- mvrnorm(n = 1000, mu = c(-1, 2), Sigma = matrix(c(10, 3, 3, 1), 2, 2))
