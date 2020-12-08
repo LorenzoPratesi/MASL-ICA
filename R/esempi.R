@@ -1,9 +1,8 @@
-
 #Differences between PCA and ICA
 
 library(fastICA)
 library(MASS)
-
+library(whitening)
 
 #Example 1: two mixed independent uniforms
 
@@ -15,11 +14,14 @@ X <- S %*% A
 
 ica <- fastICA(X, n.comp=2, alg.typ="parallel")
 
-par(mfrow = c(1, 3))
+w <- whiten(X) # Whitening X
+
+par(mfrow = c(2,2))
+par(mar=c(2,2,2,2))
 plot(ica$X, col="lightblue3", pch=20, main = "Original data")
 plot(ica$X %*% ica$K, col="lightblue3", pch=20, main = "Principal components")
+plot(w, col="lightblue3", pch=20, main = "Whitened data")
 plot(ica$S, col="lightblue3", pch=20, main = "Independent components")
-
 
 
 #Example 2: mixture of bivariate normal distributions
