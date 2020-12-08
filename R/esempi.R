@@ -9,7 +9,7 @@ library(MASS)
 
 set.seed(14)
 
-S <- matrix(runif(10000), 3000, 2)
+S <- matrix(runif(10000), 5000, 2)
 A <- matrix(c(1, 1, -1, 3), 2, 2, byrow = TRUE)
 X <- S %*% A
 
