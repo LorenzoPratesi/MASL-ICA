@@ -41,10 +41,9 @@ def split_data(X, y):
 
 
 def dimensionality_reduction_PCA(n_components, X_train, height, width):
-    # print("Extracting the top %d eigenfaces from %d faces" % (n_components, X_train.shape[0]))
-    # t0 = time()
+    print("Extracting the top %d eigenfaces from %d faces" % (n_components, X_train.shape[0]))
+
     pca = PCA(n_components=n_components, svd_solver='randomized', whiten=True).fit(X_train)
-    # print("done in %0.3fs" % (time() - t0))
 
     eigenfaces = pca.components_.reshape((n_components, height, width))
 
