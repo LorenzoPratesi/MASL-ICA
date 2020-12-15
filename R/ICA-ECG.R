@@ -5,6 +5,7 @@
 
 library("JADE")
 library("BSSasymp")
+library("ICtest")
 dataset <- matrix(scan("../resources/foetal_ecg.dat"), 2500, 9, byrow = TRUE)
 
 X <- dataset[, 2:9]
@@ -13,6 +14,10 @@ plot.ts(X, nc = 1, main = "Data")
 scale(X, center = FALSE, scale = apply(X, 2, sd))
 jade <- JADE(X)
 plot.ts(bss.components(jade), nc = 1, main = "JADE solution")
+
+test <- FOBIasymp(X, k = 6, type = "S3", model = "ICA")
+ggscreeplot(test) + geom_hline(yintercept=10) # p+2=10
+test
 
 ascov <- ASCOV_JADE_est(X)
 Vars <- matrix(diag(ascov$COV_W), nrow = 8)
